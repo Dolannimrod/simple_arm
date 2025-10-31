@@ -1,0 +1,30 @@
+running egg_info
+creating ../../build/pick_place_arm/pick_place_arm.egg-info
+writing ../../build/pick_place_arm/pick_place_arm.egg-info/PKG-INFO
+writing dependency_links to ../../build/pick_place_arm/pick_place_arm.egg-info/dependency_links.txt
+writing requirements to ../../build/pick_place_arm/pick_place_arm.egg-info/requires.txt
+writing top-level names to ../../build/pick_place_arm/pick_place_arm.egg-info/top_level.txt
+writing manifest file '../../build/pick_place_arm/pick_place_arm.egg-info/SOURCES.txt'
+reading manifest file '../../build/pick_place_arm/pick_place_arm.egg-info/SOURCES.txt'
+writing manifest file '../../build/pick_place_arm/pick_place_arm.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/nimrod/Documents/simple_arm/build/pick_place_arm/build
+creating /home/nimrod/Documents/simple_arm/build/pick_place_arm/build/lib
+creating /home/nimrod/Documents/simple_arm/build/pick_place_arm/build/lib/pick_place_arm
+copying pick_place_arm/__init__.py -> /home/nimrod/Documents/simple_arm/build/pick_place_arm/build/lib/pick_place_arm
+running install
+running install_lib
+creating /home/nimrod/Documents/simple_arm/install/pick_place_arm/lib/python3.12/site-packages/pick_place_arm
+copying /home/nimrod/Documents/simple_arm/build/pick_place_arm/build/lib/pick_place_arm/__init__.py -> /home/nimrod/Documents/simple_arm/install/pick_place_arm/lib/python3.12/site-packages/pick_place_arm
+byte-compiling /home/nimrod/Documents/simple_arm/install/pick_place_arm/lib/python3.12/site-packages/pick_place_arm/__init__.py to __init__.cpython-312.pyc
+running install_data
+creating /home/nimrod/Documents/simple_arm/install/pick_place_arm/share/ament_index
+creating /home/nimrod/Documents/simple_arm/install/pick_place_arm/share/ament_index/resource_index
+creating /home/nimrod/Documents/simple_arm/install/pick_place_arm/share/ament_index/resource_index/packages
+copying resource/pick_place_arm -> /home/nimrod/Documents/simple_arm/install/pick_place_arm/share/ament_index/resource_index/packages
+copying package.xml -> /home/nimrod/Documents/simple_arm/install/pick_place_arm/share/pick_place_arm
+running install_egg_info
+Copying ../../build/pick_place_arm/pick_place_arm.egg-info to /home/nimrod/Documents/simple_arm/install/pick_place_arm/lib/python3.12/site-packages/pick_place_arm-0.0.0-py3.12.egg-info
+running install_scripts
+writing list of installed files to '/home/nimrod/Documents/simple_arm/build/pick_place_arm/install.log'

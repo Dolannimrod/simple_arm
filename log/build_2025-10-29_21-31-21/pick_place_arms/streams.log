@@ -1,0 +1,45 @@
+[1.416s] Invoking command in '/home/nimrod/Documents/simple_arm/build/pick_place_arms': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/nimrod/Documents/simple_arm/src/pick_place_arms -DCMAKE_INSTALL_PREFIX=/home/nimrod/Documents/simple_arm/install/pick_place_arms
+[1.949s] -- The C compiler identification is GNU 13.3.0
+[2.324s] -- The CXX compiler identification is GNU 13.3.0
+[2.423s] -- Detecting C compiler ABI info
+[2.921s] -- Detecting C compiler ABI info - done
+[2.987s] -- Check for working C compiler: /usr/bin/cc - skipped
+[2.991s] -- Detecting C compile features
+[2.993s] -- Detecting C compile features - done
+[3.039s] -- Detecting CXX compiler ABI info
+[3.675s] -- Detecting CXX compiler ABI info - done
+[3.760s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[3.761s] -- Detecting CXX compile features
+[3.763s] -- Detecting CXX compile features - done
+[3.809s] -- Found ament_cmake: 2.5.4 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[4.625s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[5.377s] -- Found ament_lint_auto: 0.17.3 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+[5.966s] -- Added test 'flake8' to check Python code syntax and style conventions
+[5.966s] -- Configured 'flake8' exclude dirs and/or files: 
+[5.974s] -- Added test 'lint_cmake' to check CMake code style
+[5.982s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[5.996s] -- Added test 'xmllint' to check XML markup files
+[6.010s] -- Configuring done (4.5s)
+[6.027s] -- Generating done (0.0s)
+[6.040s] -- Build files have been written to: /home/nimrod/Documents/simple_arm/build/pick_place_arms
+[6.066s] Invoked command in '/home/nimrod/Documents/simple_arm/build/pick_place_arms' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/nimrod/Documents/simple_arm/src/pick_place_arms -DCMAKE_INSTALL_PREFIX=/home/nimrod/Documents/simple_arm/install/pick_place_arms
+[6.068s] Invoking command in '/home/nimrod/Documents/simple_arm/build/pick_place_arms': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/nimrod/Documents/simple_arm/build/pick_place_arms -- -j4 -l4
+[6.281s] Invoked command in '/home/nimrod/Documents/simple_arm/build/pick_place_arms' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/nimrod/Documents/simple_arm/build/pick_place_arms -- -j4 -l4
+[6.337s] Invoking command in '/home/nimrod/Documents/simple_arm/build/pick_place_arms': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/nimrod/Documents/simple_arm/build/pick_place_arms
+[6.368s] -- Install configuration: ""
+[6.368s] -- Installing: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/ament_index/resource_index/package_run_dependencies/pick_place_arms
+[6.370s] -- Installing: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/ament_index/resource_index/parent_prefix_path/pick_place_arms
+[6.372s] -- Installing: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms/environment/ament_prefix_path.sh
+[6.372s] -- Installing: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms/environment/ament_prefix_path.dsv
+[6.373s] -- Installing: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms/environment/path.sh
+[6.374s] -- Installing: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms/environment/path.dsv
+[6.375s] -- Installing: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms/local_setup.bash
+[6.377s] -- Installing: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms/local_setup.sh
+[6.379s] -- Installing: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms/local_setup.zsh
+[6.380s] -- Installing: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms/local_setup.dsv
+[6.380s] -- Installing: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms/package.dsv
+[6.381s] -- Installing: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/ament_index/resource_index/packages/pick_place_arms
+[6.382s] -- Installing: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms/cmake/pick_place_armsConfig.cmake
+[6.382s] -- Installing: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms/cmake/pick_place_armsConfig-version.cmake
+[6.383s] -- Installing: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms/package.xml
+[6.388s] Invoked command in '/home/nimrod/Documents/simple_arm/build/pick_place_arms' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/nimrod/Documents/simple_arm/build/pick_place_arms

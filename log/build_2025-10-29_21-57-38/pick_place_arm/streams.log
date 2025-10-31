@@ -1,0 +1,19 @@
+[2.854s] Invoking command in '/home/nimrod/Documents/simple_arm/src/pick_place_arm': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/nimrod/Documents/simple_arm/build/pick_place_arm/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/nimrod/Documents/simple_arm/install/pick_place_arm/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/pick_place_arm build --build-base /home/nimrod/Documents/simple_arm/build/pick_place_arm/build install --record /home/nimrod/Documents/simple_arm/build/pick_place_arm/install.log --single-version-externally-managed install_data
+[3.795s] running egg_info
+[3.881s] writing ../../build/pick_place_arm/pick_place_arm.egg-info/PKG-INFO
+[3.881s] writing dependency_links to ../../build/pick_place_arm/pick_place_arm.egg-info/dependency_links.txt
+[3.882s] writing requirements to ../../build/pick_place_arm/pick_place_arm.egg-info/requires.txt
+[3.883s] writing top-level names to ../../build/pick_place_arm/pick_place_arm.egg-info/top_level.txt
+[4.221s] reading manifest file '../../build/pick_place_arm/pick_place_arm.egg-info/SOURCES.txt'
+[4.227s] writing manifest file '../../build/pick_place_arm/pick_place_arm.egg-info/SOURCES.txt'
+[4.228s] running build
+[4.229s] running build_py
+[4.231s] running install
+[4.263s] running install_lib
+[4.351s] running install_data
+[4.351s] running install_egg_info
+[4.412s] removing '/home/nimrod/Documents/simple_arm/install/pick_place_arm/lib/python3.12/site-packages/pick_place_arm-0.0.0-py3.12.egg-info' (and everything under it)
+[4.412s] Copying ../../build/pick_place_arm/pick_place_arm.egg-info to /home/nimrod/Documents/simple_arm/install/pick_place_arm/lib/python3.12/site-packages/pick_place_arm-0.0.0-py3.12.egg-info
+[4.414s] running install_scripts
+[4.887s] writing list of installed files to '/home/nimrod/Documents/simple_arm/build/pick_place_arm/install.log'
+[4.959s] Invoked command in '/home/nimrod/Documents/simple_arm/src/pick_place_arm' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/nimrod/Documents/simple_arm/build/pick_place_arm/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/nimrod/Documents/simple_arm/install/pick_place_arm/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/pick_place_arm build --build-base /home/nimrod/Documents/simple_arm/build/pick_place_arm/build install --record /home/nimrod/Documents/simple_arm/build/pick_place_arm/install.log --single-version-externally-managed install_data

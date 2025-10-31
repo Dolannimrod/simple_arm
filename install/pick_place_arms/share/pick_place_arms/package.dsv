@@ -1,0 +1,8 @@
+source;share/pick_place_arms/hook/cmake_prefix_path.ps1
+source;share/pick_place_arms/hook/cmake_prefix_path.dsv
+source;share/pick_place_arms/hook/cmake_prefix_path.sh
+source;share/pick_place_arms/local_setup.bash
+source;share/pick_place_arms/local_setup.dsv
+source;share/pick_place_arms/local_setup.ps1
+source;share/pick_place_arms/local_setup.sh
+source;share/pick_place_arms/local_setup.zsh

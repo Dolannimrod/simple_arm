@@ -1,0 +1,36 @@
+[0.018s] Invoking command in '/home/nimrod/Documents/simple_arm/build/pick_place_arms': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/nimrod/Documents/simple_arm/build/pick_place_arms -- -j4 -l4
+[0.096s] Invoked command in '/home/nimrod/Documents/simple_arm/build/pick_place_arms' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/nimrod/Documents/simple_arm/build/pick_place_arms -- -j4 -l4
+[0.113s] Invoking command in '/home/nimrod/Documents/simple_arm/build/pick_place_arms': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/nimrod/Documents/simple_arm/build/pick_place_arms
+[0.125s] -- Install configuration: ""
+[0.126s] -- Up-to-date: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms//launch
+[0.126s] -- Installing: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms//launch/pick_place.py
+[0.127s] -- Installing: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms//launch/pick_place_world.py
+[0.127s] -- Up-to-date: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms//meshes
+[0.127s] -- Up-to-date: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms//meshes/Right gripper.stl
+[0.128s] -- Up-to-date: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms//meshes/Base.stl
+[0.128s] -- Up-to-date: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms//meshes/Left gripper.stl
+[0.128s] -- Up-to-date: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms//meshes/Shoulder.stl
+[0.128s] -- Up-to-date: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms//meshes/Shoulder_arm.stl
+[0.128s] -- Up-to-date: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms//meshes/arm.stl
+[0.129s] -- Up-to-date: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms//rviz
+[0.129s] -- Up-to-date: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms//urdf
+[0.129s] -- Up-to-date: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms//urdf/pick_place.urdf
+[0.129s] -- Up-to-date: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms//worlds
+[0.129s] -- Up-to-date: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms//worlds/place.sdf
+[0.130s] -- Up-to-date: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms//worlds/pick.sdf
+[0.130s] -- Up-to-date: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/ament_index/resource_index/package_run_dependencies/pick_place_arms
+[0.130s] -- Up-to-date: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/ament_index/resource_index/parent_prefix_path/pick_place_arms
+[0.130s] -- Up-to-date: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms/environment/ament_prefix_path.sh
+[0.130s] -- Up-to-date: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms/environment/ament_prefix_path.dsv
+[0.130s] -- Up-to-date: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms/environment/path.sh
+[0.131s] -- Up-to-date: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms/environment/path.dsv
+[0.131s] -- Up-to-date: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms/local_setup.bash
+[0.131s] -- Up-to-date: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms/local_setup.sh
+[0.131s] -- Up-to-date: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms/local_setup.zsh
+[0.131s] -- Up-to-date: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms/local_setup.dsv
+[0.131s] -- Installing: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms/package.dsv
+[0.131s] -- Up-to-date: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/ament_index/resource_index/packages/pick_place_arms
+[0.131s] -- Up-to-date: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms/cmake/pick_place_armsConfig.cmake
+[0.131s] -- Up-to-date: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms/cmake/pick_place_armsConfig-version.cmake
+[0.132s] -- Up-to-date: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms/package.xml
+[0.134s] Invoked command in '/home/nimrod/Documents/simple_arm/build/pick_place_arms' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/nimrod/Documents/simple_arm/build/pick_place_arms

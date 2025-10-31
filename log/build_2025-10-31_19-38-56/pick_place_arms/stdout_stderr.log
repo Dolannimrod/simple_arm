@@ -1,0 +1,32 @@
+-- Install configuration: ""
+-- Up-to-date: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms//launch
+-- Installing: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms//launch/pick_place.py
+-- Installing: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms//launch/pick_place_world.py
+-- Up-to-date: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms//meshes
+-- Up-to-date: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms//meshes/Right gripper.stl
+-- Up-to-date: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms//meshes/Base.stl
+-- Up-to-date: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms//meshes/Left gripper.stl
+-- Up-to-date: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms//meshes/Shoulder.stl
+-- Up-to-date: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms//meshes/Shoulder_arm.stl
+-- Up-to-date: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms//meshes/arm.stl
+-- Up-to-date: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms//rviz
+-- Up-to-date: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms//urdf
+-- Up-to-date: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms//urdf/pick_place.urdf
+-- Up-to-date: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms//worlds
+-- Up-to-date: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms//worlds/place.sdf
+-- Up-to-date: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms//worlds/pick.sdf
+-- Up-to-date: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/ament_index/resource_index/package_run_dependencies/pick_place_arms
+-- Up-to-date: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/ament_index/resource_index/parent_prefix_path/pick_place_arms
+-- Up-to-date: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms/environment/ament_prefix_path.sh
+-- Up-to-date: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms/environment/ament_prefix_path.dsv
+-- Up-to-date: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms/environment/path.sh
+-- Up-to-date: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms/environment/path.dsv
+-- Up-to-date: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms/local_setup.bash
+-- Up-to-date: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms/local_setup.sh
+-- Up-to-date: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms/local_setup.zsh
+-- Up-to-date: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms/local_setup.dsv
+-- Installing: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms/package.dsv
+-- Up-to-date: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/ament_index/resource_index/packages/pick_place_arms
+-- Up-to-date: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms/cmake/pick_place_armsConfig.cmake
+-- Up-to-date: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms/cmake/pick_place_armsConfig-version.cmake
+-- Up-to-date: /home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms/package.xml
