@@ -1,8 +1,19 @@
-# Build folder and log file
-build/
-build.log
+# VS Code
 .vscode/
 *.vc.db
-.vscode/
-*.vc.db
+*.vc.db-*
 browse.vc.db*
+
+# ROS
+build/
+devel/
+install/
+*.pyc
+__pycache__/
+
+# General
+*.log
+*.tmp
+*.swp
+*~
+.DS_Store
