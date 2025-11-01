@@ -3,3 +3,6 @@ build/
 build.log
 .vscode/
 *.vc.db
+.vscode/
+*.vc.db
+browse.vc.db*
