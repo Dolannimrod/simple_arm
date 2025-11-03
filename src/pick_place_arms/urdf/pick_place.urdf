@@ -8,17 +8,17 @@
     <joint name="base_to_arm" type="fixed">
       <parent link="base_footprint"/>
       <child link="base_link"/>
-      <origin xyz="0 0 0.05" rpy="0 0 0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
     </joint>
 
-    <!-- Include the base_link-->
+  <!-- Include the base_link-->
 <link name='base_link'>
-    <pose>0 0 0.1 0 0 0</pose>
+    <pose>0 0 0 0 0 0</pose>
 
     <joint name="base_to_arm" type="fixed">
       <parent link="base_footprint"/>
       <child link="base_link"/>
-      <origin xyz="0 0 0.05" rpy="0 0 0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
     </joint>
 
     <inertial>
@@ -39,7 +39,7 @@
     </collision>
 
     <visual name='base_link_visual'>
-      <origin xyz="0 0 0" rpy=" 0 0 0"/>
+      <origin xyz="0 0 0" rpy=" 01.57 0 0"/>
       <geometry>
         <mesh filename ="package://pick_place_arms/meshes/Base.stl" scale="0.001 0.001 0.001"/>
       </geometry>
@@ -49,14 +49,14 @@
   <joint name="arm_joint" type="revolute">
     <parent link="base_link"/>
     <child link="shoulder_link"/>
-    <origin xyz="0 0 0.1" rpy="0 0 0"/>
+    <origin xyz="0 0 0.01" rpy="0 0 0"/>
     <axis xyz="0 0 1"/>
     <limit lower="-1.57" upper="1.57" effort="10" velocity="1.0"/>
   </joint>
 
   <!-- Shoulder link -->
   <link name="shoulder_link">
-    <pose>0 0 0.2 0 0 0</pose>
+    <pose>0 0 0 0 0 0</pose>
 
     <inertial>
       <mass value="5.0"/>
@@ -76,7 +76,7 @@
     </collision>
 
     <visual name='shoulder_link_visual'>
-      <origin xyz="0 0 0.1" rpy=" 0 0 0"/>
+      <origin xyz="0 0 0.0001" rpy=" 1.57 0 0"/>
       <geometry>
         <mesh filename ="package://pick_place_arms/meshes/Shoulder.stl" scale="0.001 0.001 0.001"/>
       </geometry>
@@ -86,17 +86,17 @@
   <joint name="elbow_joint" type="revolute">
     <parent link="shoulder_link"/>
     <child link="arm_link"/>
-    <origin xyz="0 0 0.2" rpy="0 0 0"/>
-    <axis xyz="0 0 1"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
     <limit lower="-1.57" upper="1.57" effort="10" velocity="1.0"/>
   </joint>
 
   <!-- Arm link -->
   <link name="arm_link">
-    <pose>0 0 0.4 0 0 0</pose>
+    <pose>0 0 0 0 0 0</pose>
     <inertial>
       <mass value="3.0"/>
-      <origin xyz="0.0 0 0.1" rpy=" 0 0 0"/>
+      <origin xyz="0 0 0" rpy=" 0 0 0"/>
         <inertia
             ixx="0.01" ixy="0" ixz="0"
             iyy="0.01" iyz="0"
@@ -112,7 +112,7 @@
     </collision>
 
     <visual name='arm_link_visual'>
-      <origin xyz="0 0 0.1" rpy=" 0 0 0"/>
+      <origin xyz="0.0085 0 0.06" rpy=" -1.57 0 1.57"/>
       <geometry>
         <mesh filename ="package://pick_place_arms/meshes/Shoulder_arm.stl" scale="0.001 0.001 0.001" />
       </geometry>
