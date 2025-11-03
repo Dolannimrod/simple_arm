@@ -2,120 +2,231 @@
 
 <robot name="pick_place" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <!-- Robot footprint -->
-  <link name="base_footprint"></link>
+    <!-- Robot footprint -->
+    <link name="base_footprint"></link>
 
-    <joint name="base_to_arm" type="fixed">
-      <parent link="base_footprint"/>
-      <child link="base_link"/>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <joint name="base_to_arm" type="fixed">
+        <parent link="base_footprint"/>
+        <child link="base_link"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+      </joint>
+
+    <!-- Include the base_link-->
+  <link name='base_link'>
+      <pose>0 0 0 0 0 0</pose>
+
+      <joint name="base_to_arm" type="fixed">
+        <parent link="base_footprint"/>
+        <child link="base_link"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+      </joint>
+
+      <inertial>
+        <mass value="15.0"/>
+        <origin xyz="0.0 0 0" rpy=" 0 0 0"/>
+          <inertia
+              ixx="0.0625" ixy="0" ixz="0"
+              iyy="0.2125" iyz="0"
+              izz="0.25"
+          />
+      </inertial>
+
+      <collision name='collision'>
+        <origin xyz="0 0 0" rpy=" 0 0 0"/> 
+          <geometry>
+            <box size="0.4 0.2 0.1"/>
+          </geometry>
+      </collision>
+
+      <visual name='base_link_visual'>
+        <origin xyz="0 0 0" rpy=" 01.57 0 0"/>
+        <geometry>
+          <mesh filename ="package://pick_place_arms/meshes/Base.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </visual>
+    </link>
+
+    <joint name="arm_joint" type="revolute">
+      <parent link="base_link"/>
+      <child link="shoulder_link"/>
+      <origin xyz="0 0 0.01" rpy="0 0 0"/>
+      <axis xyz="0 0 1"/>
+      <limit lower="-1.57" upper="1.57" effort="10" velocity="1.0"/>
     </joint>
 
-  <!-- Include the base_link-->
-<link name='base_link'>
-    <pose>0 0 0 0 0 0</pose>
+    <!-- Shoulder link -->
+    <link name="shoulder_link">
+      <pose>0 0 0 0 0 0</pose>
 
-    <joint name="base_to_arm" type="fixed">
-      <parent link="base_footprint"/>
-      <child link="base_link"/>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertial>
+        <mass value="5.0"/>
+        <origin xyz="0.0 0 0.1" rpy=" 0 0 0"/>
+          <inertia
+              ixx="0.02" ixy="0" ixz="0"
+              iyy="0.02" iyz="0"
+              izz="0.005"
+          />
+      </inertial>
+
+      <collision name='collision'>
+        <origin xyz="0 0 0.1" rpy=" 0 0 0"/> 
+          <geometry>
+            <cylinder radius="0.05" length="0.2"/>
+          </geometry>
+      </collision>
+
+      <visual name='shoulder_link_visual'>
+        <origin xyz="0 0 0.0001" rpy=" 1.57 0 0"/>
+        <geometry>
+          <mesh filename ="package://pick_place_arms/meshes/Shoulder.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </visual>
+    </link>
+
+    <joint name="elbow_joint" type="revolute">
+      <parent link="shoulder_link"/>
+      <child link="arm_link"/>
+      <origin xyz="0 0 0.015" rpy="0 0 0"/>
+      <axis xyz="1 0 0"/>
+      <limit lower="-1.57" upper="1.57" effort="10" velocity="1.0"/>
     </joint>
 
-    <inertial>
-      <mass value="15.0"/>
-      <origin xyz="0.0 0 0" rpy=" 0 0 0"/>
-        <inertia
-            ixx="0.0625" ixy="0" ixz="0"
-            iyy="0.2125" iyz="0"
-            izz="0.25"
-        />
-    </inertial>
+    <!-- Arm link -->
+    <link name="arm_link">
+      <pose>0 0 0 0 0 0</pose>
+      <inertial>
+        <mass value="3.0"/>
+        <origin xyz="0 0 0" rpy=" 0 0 0"/>
+          <inertia
+              ixx="0.01" ixy="0" ixz="0"
+              iyy="0.01" iyz="0"
+              izz="0.003"
+          />
+      </inertial>
 
-    <collision name='collision'>
-      <origin xyz="0 0 0" rpy=" 0 0 0"/> 
+      <collision name='collision'>
+        <origin xyz="0 0 0.1" rpy=" 0 0 0"/> 
+          <geometry>
+            <cylinder radius="0.04" length="0.2"/>
+          </geometry>
+      </collision>
+
+      <visual name='arm_link_visual'>
+        <origin xyz="0.0085 0 0.045" rpy=" -1.57 0 1.57"/>
         <geometry>
-          <box size="0.4 0.2 0.1"/>
+          <mesh filename ="package://pick_place_arms/meshes/Shoulder_arm.stl" scale="0.001 0.001 0.001" />
         </geometry>
-    </collision>
+      </visual>
+    </link>  
 
-    <visual name='base_link_visual'>
-      <origin xyz="0 0 0" rpy=" 01.57 0 0"/>
-      <geometry>
-        <mesh filename ="package://pick_place_arms/meshes/Base.stl" scale="0.001 0.001 0.001"/>
-      </geometry>
-    </visual>
-  </link>
+    <joint name="gripper_joint" type="revolute">
+      <parent link="arm_link"/>
+      <child link="gripper_link"/>
+        <origin xyz="0 0 0.0315" rpy="0 0 0"/>
+        <axis xyz="1 0 0"/>
+        <limit lower="-1.57" upper="1.57" effort="10" velocity="1.0"/>
+    </joint>
 
-  <joint name="arm_joint" type="revolute">
-    <parent link="base_link"/>
-    <child link="shoulder_link"/>
-    <origin xyz="0 0 0.01" rpy="0 0 0"/>
-    <axis xyz="0 0 1"/>
-    <limit lower="-1.57" upper="1.57" effort="10" velocity="1.0"/>
-  </joint>
+    <!-- Gripper link -->
+    <link name="gripper_link">
+      <pose>0 0 0 0 0 0</pose>
+      <inertial>
+        <mass value="1.0"/>
+        <origin xyz="0 0 0" rpy=" 0 0 0"/>
+          <inertia
+              ixx="0.005" ixy="0" ixz="0"
+              iyy="0.005" iyz="0"
+              izz="0.002"
+          />
+      </inertial>
 
-  <!-- Shoulder link -->
-  <link name="shoulder_link">
-    <pose>0 0 0 0 0 0</pose>
+      <collision name='collision'>
+        <origin xyz="0 0 0.05" rpy=" 0 0 0"/> 
+          <geometry>
+            <box size="0.1 0.1 0.1"/>
+          </geometry>
+      </collision>
 
-    <inertial>
-      <mass value="5.0"/>
-      <origin xyz="0.0 0 0.1" rpy=" 0 0 0"/>
-        <inertia
-            ixx="0.02" ixy="0" ixz="0"
-            iyy="0.02" iyz="0"
-            izz="0.005"
-        />
-    </inertial>
-
-    <collision name='collision'>
-      <origin xyz="0 0 0.1" rpy=" 0 0 0"/> 
+      <visual name='gripper_link_visual'>
+        <origin xyz="0 0 0" rpy=" -1.57 0 0"/>
         <geometry>
-          <cylinder radius="0.05" length="0.2"/>
+          <mesh filename ="package://pick_place_arms/meshes/arm.stl" scale="0.0015 0.0015 0.0015"/>
         </geometry>
-    </collision>
+      </visual>
+    </link>
 
-    <visual name='shoulder_link_visual'>
-      <origin xyz="0 0 0.0001" rpy=" 1.57 0 0"/>
-      <geometry>
-        <mesh filename ="package://pick_place_arms/meshes/Shoulder.stl" scale="0.001 0.001 0.001"/>
-      </geometry>
-    </visual>
-  </link>
+    <joint name="gripper_left_finger_joint" type="prismatic">
+      <parent link="gripper_link"/>
+      <child link="gripper_left_finger_link"/>
+        <origin xyz="0 0 0.03" rpy="0 0 0"/>
+        <axis xyz="0 1 0"/>
+         <limit lower="-0.004" upper="-0" effort="100.0" velocity="4.0"/>
+    </joint>
 
-  <joint name="elbow_joint" type="revolute">
-    <parent link="shoulder_link"/>
-    <child link="arm_link"/>
-    <origin xyz="0 0 0" rpy="0 0 0"/>
-    <axis xyz="1 0 0"/>
-    <limit lower="-1.57" upper="1.57" effort="10" velocity="1.0"/>
-  </joint>
+    <!-- Gripper left finger link -->
 
-  <!-- Arm link -->
-  <link name="arm_link">
-    <pose>0 0 0 0 0 0</pose>
-    <inertial>
-      <mass value="3.0"/>
-      <origin xyz="0 0 0" rpy=" 0 0 0"/>
+    <link name="gripper_left_finger_link">
+      <pose>0 0 0 0 0 0</pose>
+
+      <inertial>
+        <mass value="0.2"/>
+        <origin xyz="0 0 0" rpy=" 0 0 0"/>
         <inertia
-            ixx="0.01" ixy="0" ixz="0"
-            iyy="0.01" iyz="0"
-            izz="0.003"
-        />
-    </inertial>
+            ixx="0.0005" ixy="0" ixz="0"
+            iyy="0.0005" iyz="0"
+            izz="0.0002"
+        />  
+      </inertial>
 
-    <collision name='collision'>
-      <origin xyz="0 0 0.1" rpy=" 0 0 0"/> 
+      <collision name='collision'>
+        <origin xyz="0.0 0.0 0.025" rpy=" 0 0 0"/> 
+          <geometry>
+            <box size="0.02 0.05 0.05"/>
+          </geometry>
+      </collision>
+
+      <visual name='gripper_left_finger_link_visual'>
+        <origin xyz="0 0 0.009" rpy=" 1.57 0 0"/>
         <geometry>
-          <cylinder radius="0.04" length="0.2"/>
+          <mesh filename ="package://pick_place_arms/meshes/Left gripper.stl" scale="0.0015 0.0015 0.0015"/>
         </geometry>
-    </collision>
+      </visual>
+    </link>
+    
+    <joint name="gripper_right_finger_joint" type="prismatic">
+      <parent link="gripper_link"/>
+      <child link="gripper_right_finger_link"/>
+        <origin xyz="0 0 0.03" rpy="0 0 0"/>
+        <axis xyz="0 1 0"/>
+        <limit lower="0" upper="0.004" effort="5" velocity="1.0"/>
+    </joint>
 
-    <visual name='arm_link_visual'>
-      <origin xyz="0.0085 0 0.06" rpy=" -1.57 0 1.57"/>
-      <geometry>
-        <mesh filename ="package://pick_place_arms/meshes/Shoulder_arm.stl" scale="0.001 0.001 0.001" />
-      </geometry>
-    </visual>
-  </link>      
+    <!-- Gripper right finger link -->
+    <link name="gripper_right_finger_link">
+      <pose>0 0 0 0 0 0</pose>
+
+      <inertial>
+        <mass value="0.2"/>
+        <origin xyz="0 0 0" rpy=" 0 0 0"/>
+        <inertia
+            ixx="0.0005" ixy="0" ixz="0"
+            iyy="0.0005" iyz="0"
+            izz="0.0002"
+        />  
+      </inertial>
+
+      <collision name='collision'>
+        <origin xyz="0.0 0.0 0.025" rpy=" 0 0 0"/> 
+          <geometry>
+            <box size="0.02 0.05 0.05"/>
+          </geometry>
+      </collision>
+
+      <visual name='gripper_right_finger_link_visual'>
+        <origin xyz="0 0 0.009" rpy=" 1.57 0 0"/>
+        <geometry>
+          <mesh filename ="package://pick_place_arms/meshes/Right gripper.stl" scale="0.0015 0.0015 0.0015"/>
+        </geometry>
+      </visual>
+    </link>
 </robot>
