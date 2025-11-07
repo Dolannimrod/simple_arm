@@ -20,7 +20,7 @@ def generate_launch_description():
     )
 
     world_arg = DeclareLaunchArgument(
-        'world', default_value='place.sdf',
+        'world', default_value='environ.sdf',
         description='Name of the Gazebo world file to load'
     )
 
@@ -81,6 +81,7 @@ def generate_launch_description():
             "-name", "pick_place",
             "-topic", "robot_description",
             "-x", "0.0", "-y", "0.0", "-z", "0.5", "-Y", "0.0"
+
         ],
         output="screen",
         parameters=[{'use_sim_time': LaunchConfiguration('use_sim_time')}]

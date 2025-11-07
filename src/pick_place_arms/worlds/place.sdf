@@ -66,31 +66,756 @@
       <pose>0 0 0 0 0 0</pose>
       <self_collide>false</self_collide>
     </model>
-    <include>
-      <uri>file:///home/nimrod/gazebo_models/table_marble</uri>
-      <name>table_marble</name>
-      <pose>-0.55209357317554986 1.6059205991053802 0.64800000000000002 0 0 0</pose>
-    </include>
-    <include>
-      <uri>file:///home/nimrod/gazebo_models/Table</uri>
-      <name>Table</name>
-      <pose>-0.87387217276821882 -0.6836999376139572 0 0 0 0</pose>
-    </include>
-    <include>
-      <uri>file:///home/nimrod/gazebo_models/coke_can</uri>
-      <name>coke_can</name>
-      <pose>0.29771529475444236 -1.9891894590615691 0 0 0 0</pose>
-    </include>
-    <include>
-      <uri>file:///home/nimrod/gazebo_models/coke_can_steel</uri>
-      <name>coke_can_steel</name>
-      <pose>-0.31650178606096624 -2.0173582633104932 0 0 0 0</pose>
-    </include>
-    <include>
-      <uri>file:///home/nimrod/gazebo_models/first_2015_trash_can</uri>
-      <name>first_2015_trash_can</name>
-      <pose>-0.18528818475639586 3.9283863030080615 0 0 0 0</pose>
-    </include>
+    <model name='table_marble'>
+      <static>true</static>
+      <pose>-0.55209399999999997 1.60592 0.64800000000000002 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>file:///home/nimrod/gazebo_models/table_marble/model://table_marble/meshes/table_lightmap.dae</uri>
+              <scale>0.25 0.25 0.25</scale>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>file:///home/nimrod/gazebo_models/table_marble/model://table_marble/meshes/table_lightmap.dae</uri>
+              <scale>0.25 0.25 0.25</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+            <script>
+              <uri>file:///home/nimrod/gazebo_models/table_marble/model://table_marble/materials/scripts</uri>
+              <uri>model://table_marble/materials/textures</uri>
+              <name>Table/Marble_Lightmap</name>
+            </script>
+            <lighting>false</lighting>
+            <pbr>
+              <metal>
+                <albedo_map>model://table_marble/materials/textures/marble.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='Table'>
+      <static>true</static>
+      <link name='link'>
+        <collision name='surface'>
+          <pose>0 0 1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1.5 0.80000000000000004 0.029999999999999999</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>0.59999999999999998</mu>
+                <mu2>0.59999999999999998</mu2>
+              </ode>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='visual1'>
+          <pose>0 0 1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1.5 0.80000000000000004 0.029999999999999999</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Wood</name>
+            </script>
+            <pbr>
+              <metal>
+                <albedo_map>model://Table/Table_Diffuse.jpg</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+        <collision name='front_left_leg'>
+          <pose>0.68000000000000005 0.38 0.5 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.02</radius>
+              <length>1</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='front_left_leg'>
+          <pose>0.68000000000000005 0.38 0.5 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.02</radius>
+              <length>1</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <diffuse>0.5 0.5 0.5 1</diffuse>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='front_right_leg'>
+          <pose>0.68000000000000005 -0.38 0.5 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.02</radius>
+              <length>1</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='front_right_leg'>
+          <pose>0.68000000000000005 -0.38 0.5 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.02</radius>
+              <length>1</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <diffuse>0.5 0.5 0.5 1</diffuse>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='back_right_leg'>
+          <pose>-0.68000000000000005 -0.38 0.5 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.02</radius>
+              <length>1</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='back_right_leg'>
+          <pose>-0.68000000000000005 -0.38 0.5 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.02</radius>
+              <length>1</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <diffuse>0.5 0.5 0.5 1</diffuse>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='back_left_leg'>
+          <pose>-0.68000000000000005 0.38 0.5 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.02</radius>
+              <length>1</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='back_left_leg'>
+          <pose>-0.68000000000000005 0.38 0.5 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.02</radius>
+              <length>1</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <diffuse>0.5 0.5 0.5 1</diffuse>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>-0.87387199999999998 -0.68369999999999997 0 0 0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='coke_can'>
+      <link name='link'>
+        <inertial>
+          <pose>-0.01 -0.012 0.14999999999999999 0 0 0</pose>
+          <mass>0.39000000000000001</mass>
+          <inertia>
+            <ixx>0.00058</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.00058</iyy>
+            <iyz>0</iyz>
+            <izz>0.00019000000000000001</izz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 -0.46000000000000002 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/nimrod/gazebo_models/coke_can/model://coke_can/meshes/coke_can.dae</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>1</mu>
+                <mu2>1</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>10000000</kp>
+                <kd>1</kd>
+                <min_depth>0.001</min_depth>
+                <max_vel>0.10000000000000001</max_vel>
+              </ode>
+            </contact>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <pose>0 0 -0.46000000000000002 0 0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/nimrod/gazebo_models/coke_can/model://coke_can/meshes/coke_can.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>-0.91922848615110664 1.2984616440250341 0.96086823916574715 -0.011216919178116687 0.0040300550343879919 0.0015499265097298545</pose>
+      <static>false</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='coke_can_steel'>
+      <link name='link'>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1000</mass>
+          <inertia>
+            <ixx>0.083000000000000004</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.083000000000000004</iyy>
+            <iyz>0</iyz>
+            <izz>0.083000000000000004</izz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>file:///home/nimrod/gazebo_models/coke_can_steel/model://coke_can_steel/meshes/coke_can.obj</uri>
+              <scale>2 2 2</scale>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>file:///home/nimrod/gazebo_models/coke_can_steel/model://coke_can_steel/meshes/coke_can.obj</uri>
+              <scale>2 2 2</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>-0.31128653934681183 1.633976567851362 0.96455438069736688 -0.011296295291890709 0.0041954106965321376 -3.3634260479568013e-05</pose>
+      <surface_props:material>metal</surface_props:material>
+      <surface_props:biofouling_rating>0</surface_props:biofouling_rating>
+      <surface_props:roughness>0.0</surface_props:roughness>
+      <static>false</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='first_2015_trash_can'>
+      <link name='link'>
+        <inertial>
+          <pose>0 0 0.36830000000000002 0 0 0</pose>
+          <mass>4.8307599999999997</mass>
+          <inertia>
+            <ixx>0.28153405199999998</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.28153405199999998</iyy>
+            <iyz>0</iyz>
+            <izz>0.12622283100000001</izz>
+          </inertia>
+        </inertial>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>file:///home/nimrod/gazebo_models/first_2015_trash_can/model://first_2015_trash_can/meshes/trash_can.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>file:///home/nimrod/gazebo_models/first_2015_trash_can/model://first_2015_trash_can/meshes/trash_can.dae</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>-0.52327817693357037 3.0924201139480654 -5.9074665063546969e-05 1.9645539931432093e-05 8.2637276813132414e-07 -3.0307874345937509e-08</pose>
+      <static>false</static>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='pick_place'>
+      <link name='base_footprint'>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>15</mass>
+          <inertia>
+            <ixx>0.0625</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.21249999999999999</iyy>
+            <iyz>0</iyz>
+            <izz>0.25</izz>
+          </inertia>
+        </inertial>
+        <collision name='base_footprint_fixed_joint_lump__collision_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.40000000000000002 0.20000000000000001 0.10000000000000001</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='base_footprint_fixed_joint_lump__base_link_visual_visual'>
+          <pose>0 0 0 1.5700000000000001 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>file://<urdf-string>/model://pick_place_arms/meshes/Base.stl</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='arm_joint' type='revolute'>
+        <pose>0 0 0 0 0 0</pose>
+        <parent>base_footprint</parent>
+        <child>shoulder_link</child>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-1.5700000000000001</lower>
+            <upper>1.5700000000000001</upper>
+            <effort>10</effort>
+            <velocity>1</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='shoulder_link'>
+        <pose>-3.3087224502121107e-24 0 0.010000000000000009 1.5840956889150039e-22 1.0261961285896468e-24 4.0845067946736182e-07</pose>
+        <inertial>
+          <pose>0 0 0.10000000000000001 0 0 0</pose>
+          <mass>5</mass>
+          <inertia>
+            <ixx>0.02</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.02</iyy>
+            <iyz>0</iyz>
+            <izz>0.0050000000000000001</izz>
+          </inertia>
+        </inertial>
+        <collision name='shoulder_link_fixed_joint_lump__collision_collision'>
+          <pose>0 0 0.10000000000000001 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <length>0.20000000000000001</length>
+              <radius>0.050000000000000003</radius>
+            </cylinder>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='shoulder_link_visual_visual'>
+          <pose>0 0 0.0001 1.5700000000000001 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>file://<urdf-string>/model://pick_place_arms/meshes/Shoulder.stl</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='elbow_joint' type='revolute'>
+        <pose>0 0 0 0 0 0</pose>
+        <parent>shoulder_link</parent>
+        <child>arm_link</child>
+        <axis>
+          <xyz>1 0 0</xyz>
+          <limit>
+            <lower>-1.5700000000000001</lower>
+            <upper>1.5700000000000001</upper>
+            <effort>10</effort>
+            <velocity>1</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='arm_link'>
+        <pose>9.3156038405681185e-12 4.7596162788821061e-08 0.025000768281469243 1.5699993652910411 1.2966324719919079e-10 1.0433691647057171e-06</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>3</mass>
+          <inertia>
+            <ixx>0.01</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.01</iyy>
+            <iyz>0</iyz>
+            <izz>0.0030000000000000001</izz>
+          </inertia>
+        </inertial>
+        <collision name='arm_link_fixed_joint_lump__collision_collision'>
+          <pose>0 0 0.10000000000000001 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <length>0.20000000000000001</length>
+              <radius>0.040000000000000001</radius>
+            </cylinder>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='arm_link_visual_visual'>
+          <pose>0.0085000000000000006 0 0.044999999999999998 -1.5700000000000001 5.5511151231257827e-17 1.5700000000000001</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>file://<urdf-string>/model://pick_place_arms/meshes/Shoulder_arm.stl</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='gripper_joint' type='revolute'>
+        <pose>0 0 0 0 0 0</pose>
+        <parent>arm_link</parent>
+        <child>gripper_link</child>
+        <axis>
+          <xyz>1 0 0</xyz>
+          <limit>
+            <lower>-1.5700000000000001</lower>
+            <upper>1.5700000000000001</upper>
+            <effort>10</effort>
+            <velocity>1</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='gripper_link'>
+        <pose>3.1288652175209445e-08 -0.031499941684800969 0.025025872634485857 1.8427678022635523 4.3583100482352222e-10 9.870618629748485e-07</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>0.0050000000000000001</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0050000000000000001</iyy>
+            <iyz>0</iyz>
+            <izz>0.002</izz>
+          </inertia>
+        </inertial>
+        <collision name='gripper_link_fixed_joint_lump__collision_collision'>
+          <pose>0 0 0.050000000000000003 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.10000000000000001 0.10000000000000001 0.10000000000000001</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='gripper_link_visual_visual'>
+          <pose>0 0 0 -1.5700000000000001 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.0015 0.0015 0.0015</scale>
+              <uri>file://<urdf-string>/model://pick_place_arms/meshes/arm.stl</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='gripper_left_finger_joint' type='prismatic'>
+        <pose>0 0 0 0 0 0</pose>
+        <parent>gripper_link</parent>
+        <child>gripper_left_finger_link</child>
+        <axis>
+          <xyz>1 0 0</xyz>
+          <limit>
+            <lower>0</lower>
+            <upper>0.0040000000000000001</upper>
+            <effort>100</effort>
+            <velocity>4</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+        <physics>
+          <ode>
+            <limit>
+              <cfm>0</cfm>
+              <erp>0.20000000000000001</erp>
+            </limit>
+          </ode>
+        </physics>
+      </joint>
+      <link name='gripper_left_finger_link'>
+        <pose>5.9808557758628712e-08 -0.060397236762927298 0.01696694360099138 1.8427678022635523 4.3583100482352222e-10 9.870618629748485e-07</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>0.20000000000000001</mass>
+          <inertia>
+            <ixx>0.00050000000000000001</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.00050000000000000001</iyy>
+            <iyz>0</iyz>
+            <izz>0.00020000000000000001</izz>
+          </inertia>
+        </inertial>
+        <collision name='gripper_left_finger_link_fixed_joint_lump__collision_collision'>
+          <pose>0 0 0.025000000000000001 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.050000000000000003 0.050000000000000003</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='gripper_left_finger_link_visual_visual'>
+          <pose>0 0 0.0089999999999999993 1.5700000000000001 -5.5511151231257827e-17 1.5700000000000001</pose>
+          <geometry>
+            <mesh>
+              <scale>0.0015 0.0015 0.0015</scale>
+              <uri>file://<urdf-string>/model://pick_place_arms/meshes/Left gripper.stl</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name='gripper_right_finger_joint' type='prismatic'>
+        <pose>0 0 0 0 0 0</pose>
+        <parent>gripper_link</parent>
+        <child>gripper_right_finger_link</child>
+        <axis>
+          <xyz>1 0 0</xyz>
+          <limit>
+            <lower>-0.0040000000000000001</lower>
+            <upper>0</upper>
+            <effort>5</effort>
+            <velocity>1</velocity>
+            <stiffness>100000000</stiffness>
+            <dissipation>1</dissipation>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+            <damping>0</damping>
+            <friction>0</friction>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='gripper_right_finger_link'>
+        <pose>-2.1138401433858319e-05 -0.060397236783851449 0.016966943601000484 1.8427678022635523 4.3583100482352222e-10 9.870618629748485e-07</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>0.20000000000000001</mass>
+          <inertia>
+            <ixx>0.00050000000000000001</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.00050000000000000001</iyy>
+            <iyz>0</iyz>
+            <izz>0.00020000000000000001</izz>
+          </inertia>
+        </inertial>
+        <collision name='gripper_right_finger_link_fixed_joint_lump__collision_collision'>
+          <pose>0 0 0.025000000000000001 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.050000000000000003 0.050000000000000003</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='gripper_right_finger_link_visual_visual'>
+          <pose>0 0 0.0089999999999999993 1.5700000000000001 -5.5511151231257827e-17 1.5700000000000001</pose>
+          <geometry>
+            <mesh>
+              <scale>0.0015 0.0015 0.0015</scale>
+              <uri>file://<urdf-string>/model://pick_place_arms/meshes/Right gripper.stl</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <enable_wind>false</enable_wind>
+      </link>
+      <plugin name='gz::sim::systems::JointStatePublisher' filename='gz-sim-joint-state-publisher-system'>
+        <topic>joint_states</topic>
+        <joint_name>arm_joint</joint_name>
+        <joint_name>elbow_joint</joint_name>
+        <joint_name>gripper_joint</joint_name>
+        <joint_name>gripper_left_finger_joint</joint_name>
+        <joint_name>gripper_right_finger_joint</joint_name>
+      </plugin>
+      <frame name='base_joint' attached_to='base_footprint'>
+        <pose>0 0 0 0 0 0</pose>
+      </frame>
+      <frame name='base_link' attached_to='base_joint'>
+        <pose>0 0 0 0 0 0</pose>
+      </frame>
+      <gazebo>
+        <plugin filename='gz_ros2_control-system' name='gz_ros2_control::GazeboSimROS2ControlPlugin'>
+          <parameters>/home/nimrod/Documents/simple_arm/install/pick_place_arms/share/pick_place_arms/config/controller_position.yaml</parameters>
+        </plugin>
+      </gazebo>
+      <pose>-5.5802447647683398e-10 1.1257697927532555 1.0147609295379589 6.363661296141494e-07 -1.4007529404004331e-08 -1.5961337346328236e-10</pose>
+      <static>false</static>
+      <self_collide>false</self_collide>
+    </model>
     <light name='sun' type='directional'>
       <pose>0 0 10 0 0 0</pose>
       <cast_shadows>true</cast_shadows>
@@ -100,9 +825,9 @@
       <specular>0.200000003 0.200000003 0.200000003 1</specular>
       <attenuation>
         <range>1000</range>
-        <linear>0.01</linear>
-        <constant>0.90000000000000002</constant>
-        <quadratic>0.001</quadratic>
+        <linear>0.0099999997764825821</linear>
+        <constant>0.89999997615814209</constant>
+        <quadratic>0.0010000000474974513</quadratic>
       </attenuation>
       <spot>
         <inner_angle>0</inner_angle>

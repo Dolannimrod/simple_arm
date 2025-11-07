@@ -9,7 +9,7 @@ from launch.substitutions import  LaunchConfiguration, PathJoinSubstitution, Tex
 def generate_launch_description():
 
     world_arg = DeclareLaunchArgument(
-        'world', default_value='place.sdf',
+        'world', default_value='environ.sdf',
         description='Name of the Gazebo world file to load'
     )
 

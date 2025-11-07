@@ -3,6 +3,7 @@
 <robot name="pick_place" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
     <xacro:include filename="$(find pick_place_arms)/urdf/place.gazebo" />
+    <xacro:include filename="$(find pick_place_arms)/urdf/material.xacro" />
 
     <!-- Robot footprint -->
     <link name="base_footprint"></link>
@@ -39,6 +40,7 @@
         <geometry>
           <mesh filename ="package://pick_place_arms/meshes/Base.stl" scale="0.001 0.001 0.001"/>
         </geometry>
+        <material name="gray"/>
       </visual>
     </link>
 
@@ -76,6 +78,7 @@
         <geometry>
           <mesh filename ="package://pick_place_arms/meshes/Shoulder.stl" scale="0.001 0.001 0.001"/>
         </geometry>
+        <material name="gray"/>
       </visual>
     </link>
 
@@ -112,6 +115,7 @@
         <geometry>
           <mesh filename ="package://pick_place_arms/meshes/Shoulder_arm.stl" scale="0.001 0.001 0.001" />
         </geometry>
+        <material name="blue"/>
       </visual>
     </link>  
 
@@ -148,6 +152,7 @@
         <geometry>
           <mesh filename ="package://pick_place_arms/meshes/arm.stl" scale="0.0015 0.0015 0.0015"/>
         </geometry>
+        <material name="blue"/>
       </visual>
     </link>
 
@@ -196,6 +201,7 @@
         <geometry>
           <mesh filename ="package://pick_place_arms/meshes/Left gripper.stl" scale="0.0015 0.0015 0.0015"/>
         </geometry>
+        <material name="green"/>
       </visual>
     </link>
     
@@ -233,6 +239,7 @@
         <geometry>
           <mesh filename ="package://pick_place_arms/meshes/Right gripper.stl" scale="0.0015 0.0015 0.0015"/>
         </geometry>
+        <material name="green"/>
       </visual>
     </link>
 
