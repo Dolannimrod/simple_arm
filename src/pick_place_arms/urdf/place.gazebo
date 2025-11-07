@@ -5,7 +5,6 @@
         filename="gz-sim-joint-state-publisher-system"
         name="gz::sim::systems::JointStatePublisher">
         <topic>joint_states</topic>
-        <joint_name>base_joint</joint_name>
         <joint_name>arm_joint</joint_name>
         <joint_name>elbow_joint</joint_name>
         <joint_name>gripper_joint</joint_name>
@@ -14,9 +13,11 @@
     </plugin>
 
     
-    <plugin filename="gz_ros2_control-system" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
-      <parameters>$(find pick_place_arms)/config/controller_position.yaml</parameters>
-    </plugin>
+    <gazebo>
+      <plugin filename="gz_ros2_control-system" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+        <parameters>$(find pick_place_arms)/config/controller_position.yaml</parameters>
+      </plugin>
+    </gazebo>
 
   </gazebo>
 </robot>

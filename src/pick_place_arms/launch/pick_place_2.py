@@ -5,11 +5,11 @@ from launch.conditions import IfCondition
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration, PathJoinSubstitution, Command
 from launch_ros.actions import Node
-from ament_index_python.packages import get_package_share_directory
+from launch_ros.substitutions import FindPackageShare
 
 def generate_launch_description():
 
-    pkg_pick_place_arms = get_package_share_directory('pick_place_arms')
+    pkg_pick_place_arms = FindPackageShare('pick_place_arms').find('pick_place_arms')
 
     gazebo_models_path, ignore_last_dir = os.path.split(pkg_pick_place_arms)
     os.environ["GZ_SIM_RESOURCE_PATH"] += os.pathsep + gazebo_models_path
@@ -29,11 +29,16 @@ def generate_launch_description():
         description='Name of the URDF description to load'
     )
 
+    sim_time_arg = DeclareLaunchArgument(
+        'use_sim_time', default_value='true',
+        description='Flag to enable use_sim_time'
+    )
+
     # Define the path to your URDF or Xacro file
     urdf_file_path = PathJoinSubstitution([
-        pkg_pick_place_arms,  # Replace with your package name
+        pkg_pick_place_arms,
         "urdf",
-        LaunchConfiguration('model')  # Replace with your URDF or Xacro file
+        LaunchConfiguration('model')
     ])
 
     world_launch = IncludeLaunchDescription(
@@ -41,7 +46,7 @@ def generate_launch_description():
             os.path.join(pkg_pick_place_arms, 'launch', 'pick_place_world.py'),
         ),
         launch_arguments={
-        'world': LaunchConfiguration('world'),
+            'world': LaunchConfiguration('world'),
         }.items()
     )
 
@@ -51,78 +56,58 @@ def generate_launch_description():
         executable='rviz2',
         arguments=['-d', os.path.join(pkg_pick_place_arms, 'rviz', 'rviz.rviz')],
         condition=IfCondition(LaunchConfiguration('rviz')),
-        parameters=[
-            {'use_sim_time': True},
-        ]
+        parameters=[{'use_sim_time': LaunchConfiguration('use_sim_time')}]
     )
 
-    # Spawn the URDF model using the `/world/<world_name>/create` service
-    spawn_urdf_node = Node(
-        package="ros_gz_sim",
-        executable="create",
-        arguments=[
-            "-name", "pick_place",
-            "-topic", "robot_description",
-            "-x", "0.0", "-y", "0.0", "-z", "0.5", "-Y", "0.0"  # Initial spawn position
-        ],
-        output="screen",
-        parameters=[
-            {'use_sim_time': True},
-        ]
-    )
-
+    # Robot State Publisher
     robot_state_publisher_node = Node(
         package='robot_state_publisher',
         executable='robot_state_publisher',
         name='robot_state_publisher',
         output='screen',
         parameters=[
-            {'robot_description': Command(['xacro', ' ', urdf_file_path]),
-             'use_sim_time': True},
-        ],
-        remappings=[
-            ('/tf', 'tf'),
-            ('/tf_static', 'tf_static')
+            {
+                'robot_description': Command(['xacro', ' ', urdf_file_path]),
+                'use_sim_time': LaunchConfiguration('use_sim_time')
+            }
         ]
     )
 
-    #<!--joint_trajectory_controller_spawner = Node(
-        #package='controller_manager',
-        #executable='spawner',
-        #arguments=[
-            #'arm_controller',
-            #'-p', os.path.join(pkg_pick_place_arms, 'config', 'controller_position.yaml'),
-            #robot_controllers,
-            #],
-        #parameters=[
-         #   {'use_sim_time': True },
-       # ]
-    #) -->
+    # Spawn the URDF model
+    spawn_urdf_node = Node(
+        package="ros_gz_sim",
+        executable="create",
+        arguments=[
+            "-name", "pick_place",
+            "-topic", "robot_description",
+            "-x", "0.0", "-y", "0.0", "-z", "0.5", "-Y", "0.0"
+        ],
+        output="screen",
+        parameters=[{'use_sim_time': LaunchConfiguration('use_sim_time')}]
+    )
+
+    # Fixed Gazebo Bridge - Correct topic mappings
     gz_bridge_node = Node(
         package="ros_gz_bridge",
         executable="parameter_bridge",
         arguments=[
             "/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock",
-            "/cmd_vel@geometry_msgs/msg/Twist@gz.msgs.Twist",
-            "/odom@nav_msgs/msg/Odometry@gz.msgs.Odometry",
-            "/joint_states@sensor_msgs/msg/JointState@gz.msgs.Model",
-            "/tf@tf2_msgs/msg/TFMessage@gz.msgs.Pose_V"
+            "/cmd_vel@geometry_msgs/msg/Twist]gz.msgs.Twist",
+            "/odom@nav_msgs/msg/Odometry[gz.msgs.Odometry",
+            "/joint_states@sensor_msgs/msg/JointState[gz.msgs.Model"
         ],
         output="screen",
-        parameters=[
-            {'use_sim_time': True},
-        ]
+        parameters=[{'use_sim_time': LaunchConfiguration('use_sim_time')}]
     )
 
-    launchDescriptionObject = LaunchDescription()
-
-    launchDescriptionObject.add_action(rviz_launch_arg)
-    launchDescriptionObject.add_action(world_arg)
-    launchDescriptionObject.add_action(model_arg)
-    launchDescriptionObject.add_action(world_launch)
-    launchDescriptionObject.add_action(rviz_node)
-    launchDescriptionObject.add_action(spawn_urdf_node)
-    launchDescriptionObject.add_action(robot_state_publisher_node)
-    launchDescriptionObject.add_action(gz_bridge_node)
-    #launchDescriptionObject.add_action(joint_trajectory_controller_spawner)
-    return launchDescriptionObject
+    return LaunchDescription([
+        rviz_launch_arg,
+        world_arg,
+        model_arg,
+        sim_time_arg,
+        world_launch,
+        rviz_node,
+        robot_state_publisher_node,
+        spawn_urdf_node,
+        gz_bridge_node,
+    ])
