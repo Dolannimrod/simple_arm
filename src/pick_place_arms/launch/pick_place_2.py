@@ -101,6 +101,28 @@ def generate_launch_description():
         parameters=[{'use_sim_time': LaunchConfiguration('use_sim_time')}]
     )
 
+    joint_trajectory_controller_spawner = Node(
+        package='controller_manager',
+        executable='spawner',
+        arguments=[
+            'arm_controller',
+            '--param-file',
+        
+            ],
+        parameters=[
+            {'use_sim_time': LaunchConfiguration('use_sim_time')},
+        ]
+    )
+
+    joint_state_broadcaster_spawner = Node(
+        package='controller_manager',
+        executable='spawner',
+        arguments=['joint_state_broadcaster'],
+        parameters=[
+            {'use_sim_time': LaunchConfiguration('use_sim_time')},
+        ]
+    )
+
     return LaunchDescription([
         rviz_launch_arg,
         world_arg,
@@ -111,4 +133,6 @@ def generate_launch_description():
         robot_state_publisher_node,
         spawn_urdf_node,
         gz_bridge_node,
+        joint_trajectory_controller_spawner,
+        joint_state_broadcaster_spawner,
     ])

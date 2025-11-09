@@ -12,7 +12,7 @@ controller_manager:
         - elbow_joint 
         - gripper_joint
         - gripper_left_finger_joint
-        - gripper_right_finger_joint  # Fixed duplicate
+        - gripper_right_finger_joint 
       state_interfaces:
         - position
         - velocity
